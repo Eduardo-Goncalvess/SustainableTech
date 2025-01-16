@@ -1,0 +1,275 @@
+#Ecobody {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#Ecocontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px auto;
+    grid-template-areas: "Cabecalho  Cabecalho"
+                         "Image          Image";
+    gap: 20px;
+    
+}
+
+#Cabecalho {
+    grid-area: Cabecalho;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+}
+
+#Esquerda {
+    font-size: 10px;
+}
+
+#Direita {
+    font-size: xx-large;
+}
+
+#Image {
+    grid-area: Image;
+    position: relative;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    animation-delay: 1s;
+}
+
+#ImgEco,
+#ImgEco2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease;
+}
+
+#ImgEco {
+    background-image: url('Imagens/IRRIGAÇÃO\ E\ TECNOLOGIA.png');
+    z-index: 2;
+
+}
+
+#ImgEco2 {
+    background-image: url('Imagens/Programação.png');
+    opacity: 0;
+    z-index: 1;
+
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#ImgEco:hover {
+    opacity: 0;
+}
+
+#ImgEco:hover+#ImgEco2 {
+    opacity: 1;
+}
+
+.scroll-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #23641d, #7abb3d);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: showUp 1s ease-out 1s forwards;
+    transition: background-color 0.5s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+#headtxt {
+    font-size: 23px;
+    border-left: solid 3px;
+    border-color: #ffffff;
+    padding-left: 5px;
+}
+
+.scroll-header:hover {
+    background: linear-gradient(to left, #61d320, #2e5f12);
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgb(0, 59, 0);
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#Botao1 {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+    transition: 0.5s ease;
+    margin-left: auto;
+}
+
+#Botao1:hover {
+    transform: scale(1.3);
+}
+
+.header-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+nav {
+    width: 200px;
+    margin: 20px;
+    position: relative;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(12, 117, 35);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.5s ease;
+}
+
+button:hover {
+    transform: scale(1.3);
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.submenu a {
+
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #ccc;
+    transition: 0.5s ease;
+}
+
+.submenu a:hover {
+    color: #027702;
+    text-shadow: 0 0 10px #08eb00; 
+}
+
+.submenu.show {
+    max-height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    #Ecocontainer {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "Cabecalho"
+            "Image";
+        padding: 0;
+    }
+
+    #Cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    #Image {
+        height: 100vh; 
+        padding: 0;
+        margin: 0;
+    }
+
+    #ImgEco,
+    #ImgEco2 {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+
+    }
+
+    #Ecobody {
+    background: linear-gradient(to left, #44b900, #173f00);
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    
+    .scroll-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .header-text {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #Image {
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    #ImgEco,
+    #ImgEco2 {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    #Ecobody {
+        background: linear-gradient(to left, #44b900, #173f00);
+        }
+
+}

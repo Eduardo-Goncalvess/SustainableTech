@@ -1,0 +1,557 @@
+#Saiba {
+    text-align: left;
+    margin-left: 150px;
+    animation: animacao 1s ease-out 1s forwards;
+}
+
+.saiba {
+    color: #005e08;
+}
+
+.decorado {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #004985;
+    color: #004985;
+    padding-bottom: 100px;
+}
+
+#h1display {
+    position: relative;
+    top: -20px;
+}
+
+#h1rele {
+    position: relative;
+    top: -20px;
+}
+
+#h1sensor {
+    position: relative;
+    top: -20px;
+}
+
+.EntendaR {
+    color: #005e08;
+}
+
+.EntendaD {
+    color: #005e08;
+}
+
+.EntendaS {
+    color: #005e08;
+}
+
+.Re {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #002f55;
+    color: #002f55;
+    
+}
+
+.Di {
+    border-radius: 10px;
+    background-color: #002f55;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffffff;
+    font-size: 50px;
+}
+
+.Se {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #002f55;
+    color: #002f55;
+}
+
+#SaibaP {
+    margin-left: 150px;
+    margin-top: 17px;
+    font-size: 17px;
+    text-align: justify;
+}
+
+#explica {
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+#explica:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+#Ecobody {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+#Ecobody::-webkit-scrollbar {
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#Ecocontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 80px 340px 310px auto 60px;
+    grid-template-areas:
+        "cabecalho cabecalho cabecalho"
+        "ima ima ima"
+        "ard ard ard"
+        "explica explica explica"
+        "final final final";
+    gap: 0;
+    padding: 0;
+}
+
+#cabecalho {
+    grid-area: cabecalho;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    font-size: xx-large;
+}
+
+#ima {
+    background-image: url('Imagens/Ecologia (1).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    grid-area: ima;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    animation-delay: 1s;
+}
+
+#ard {
+    background-color: rgb(255, 255, 255);
+    grid-area: ard;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto img";
+    gap: 10px;
+    padding: 0;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    animation-delay: 1s;
+}
+
+#arduinoTXT {
+    background-color: rgb(255, 255, 255);
+    grid-area: texto;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+#txt {
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+#txt:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+#arduinoIMG {
+    background-color: rgb(255, 255, 255);
+    grid-area: img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    animation: animacao 1s ease-out 1s forwards;
+}
+
+@keyframes animacao {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#arduinoIMG img {
+    max-width: 100%;
+    height: 300px;
+    width: 2000px;
+    object-fit: contain;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#arduinoIMG img:hover {
+    transform: translateY(-10px);
+}
+
+#explica {
+    background: linear-gradient(to top, #327a38, #5ea11f);
+    grid-area: explica;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "rele lcd sensor";
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    animation-delay: 1s;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+#explica :hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#Rele,
+#Lcd,
+#Sensor {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(247, 247, 247);
+    border-style: solid;
+    border-color: aliceblue;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    height: 350px;
+    box-sizing: border-box;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+#Rele:hover,
+#Lcd:hover,
+#Sensor:hover {
+    transform: translateY(-10px);
+    transition: transform 0.5s ease;
+}
+
+#Rele img,
+#Lcd img,
+#Sensor img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 1.5s ease;
+}
+
+#Rele img:hover,
+#Lcd img:hover,
+#Sensor img:hover {
+    transform: translateY(-10px);
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+p {
+    text-align: center;
+    margin-top: 0;
+}
+
+#Final {
+    background-color: rgb(255, 255, 255);
+    grid-area: final;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.scroll-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #23641d, #7abb3d);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: showUp 1s ease-out 1s forwards;
+    transition: background-color 0.5s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+#headtxt {
+    font-size: 23px;
+    border-left: solid 3px;
+    border-color: #ffffff;
+    padding-left: 5px;
+}
+
+.scroll-header:hover {
+    background: linear-gradient(to left, #61d320, #2e5f12);
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgb(0, 59, 0);
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#Botao1 {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+    transition: 0.5s ease;
+    margin-left: auto;
+}
+
+#Botao1:hover {
+    transform: scale(1.3);
+}
+
+.header-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+nav {
+    width: 200px;
+    margin: 20px;
+    position: relative;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(12, 117, 35);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.5s ease;
+}
+
+button:hover {
+    transform: scale(1.3);
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #ccc;
+    transition: 0.5s ease;
+}
+
+.submenu a:hover {
+    color: #027702;
+    text-shadow: 0 0 10px #08eb00; 
+}
+
+.submenu.show {
+    max-height: 300px;
+}
+
+@media (max-width: 768px) {
+    #Ecocontainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas:
+            "cabecalho"
+            "ima"
+            "ard"
+            "explica"
+            "final";
+        gap: 10px;
+    }
+
+    #cabecalho {
+        font-size: larger;
+        text-align: center;
+        padding: 8px;
+    }
+
+    #ima {
+        height: 200px;
+        background-size: cover;
+    }
+
+    #ard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    #arduinoTXT {
+        order: 1;
+    }
+
+    #arduinoIMG {
+        order: 2;
+    }
+
+    #arduinoIMG img {
+        height: 150px;
+    }
+
+    #explica {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "rele"
+            "lcd"
+            "sensor";
+    }
+
+    #Rele,
+    #Lcd,
+    #Sensor {
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    #Rele img,
+    #Lcd img,
+    #Sensor img {
+        height: 100px;
+        object-fit: contain;
+    }
+
+    #Saiba {
+        margin-left: 0px;
+    }
+
+    #SaibaP {
+        font-size: 14px;
+        margin-left: 0;
+        text-align: justify;
+    }
+
+    #h1display,
+    #h1rele,
+    #h1sensor {
+        text-align: center;
+        top: -20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+    #Ecocontainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 20px;
+    }
+
+    #arduinoTXT {
+        margin-left: 0;
+        padding: 8px;
+    }
+
+    #cabecalho {
+        font-size: larger;
+        text-align: center;
+        padding: 8px;
+    }
+
+    #ima {
+        height: 300px;
+        background-size: cover;
+    }
+
+    #ard {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "texto img";
+    }
+
+    #explica {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    #Rele, #Lcd, #Sensor {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: left;
+    }
+}
